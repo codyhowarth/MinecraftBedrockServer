@@ -3,7 +3,6 @@ Description=servername minecraft server
 After=network-online.target
 
 [Service]
-User=replace
 WorkingDirectory=dirname/minecraftbe/servername
 Type=forking
 ExecStart=/bin/bash dirname/minecraftbe/servername/start.sh

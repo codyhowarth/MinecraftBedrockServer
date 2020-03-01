@@ -31,6 +31,10 @@ if [ -d "worlds" ]; then
     tar -pzvcf backups/$(date +%Y.%m.%d.%H.%M.%S).tar.gz worlds
 fi
 
+# Copy Backups to datadrive
+echo "Copying backups to data drive"
+cp -r /home/cody/minecraftbe/servername/backups /datadrive/minecraftbe/servername
+
 # Retrieve latest version of Minecraft Bedrock dedicated server
 echo "Checking for the latest version of Minecraft Bedrock server ..."
 
