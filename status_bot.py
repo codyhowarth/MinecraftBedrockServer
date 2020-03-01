@@ -1,3 +1,5 @@
+# To run this bot, a discord application needs to be setup with the proper permissions and have generated a token
+
 import discord
 from discord.ext import commands
 import random
