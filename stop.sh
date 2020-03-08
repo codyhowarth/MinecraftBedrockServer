@@ -12,20 +12,20 @@ fi
 CountdownTime=0
 while getopts ":t" opt; do
   case $opt in
-    t)
-      case $string in
-        ''|*[!0-9]*) 
-          echo "Countdown time must be a whole number in minutes."
-          exit 1
-          ;;
-        *) 
-          CountdownTime=$OPTARG >&2 
-          ;;
-      esac
+  t)
+    case $string in
+    '' | *[!0-9]*)
+      echo "Countdown time must be a whole number in minutes."
+      exit 1
       ;;
-    \?)
-      echo "Invalid option: -$OPTARG; countdown time must be a whole number in minutes." >&2
+    *)
+      CountdownTime=$OPTARG >&2
       ;;
+    esac
+    ;;
+  \?)
+    echo "Invalid option: -$OPTARG; countdown time must be a whole number in minutes." >&2
+    ;;
   esac
 done
 
@@ -33,14 +33,14 @@ done
 while [ $CountdownTime -gt 0 ]; do
   if [ $CountdownTime -eq 1 ]; then
     screen -Rd servername -X stuff "say Stopping server in 60 seconds...$(printf '\r')"
-    sleep 30;
+    sleep 30
     screen -Rd servername -X stuff "say Stopping server in 30 seconds...$(printf '\r')"
-    sleep 20;
+    sleep 20
     screen -Rd servername -X stuff "say Stopping server in 10 seconds...$(printf '\r')"
-    sleep 10;
+    sleep 10
   else
     screen -Rd servername -X stuff "say Stopping server in $CountdownTime minutes...$(printf '\r')"
-    sleep 60;
+    sleep 60
   fi
   echo "Waiting for $CountdownTime more minutes ..."
 done
@@ -54,8 +54,8 @@ while [ $StopChecks -lt 20 ]; do
   if ! screen -list | grep -q "servername"; then
     break
   fi
-  sleep 1;
-  StopChecks=$((StopChecks+1))
+  sleep 1
+  StopChecks=$((StopChecks + 1))
 done
 
 # Force quit if server is still open
@@ -65,3 +65,4 @@ if screen -list | grep -q "servername"; then
 fi
 
 echo "Minecraft server servername stopped."
+/home/cody/virtualenvironment/discord_scripts/bin/python3 /home/cody/server_off_msg.py &

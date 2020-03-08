@@ -12,10 +12,10 @@ fi
 NetworkChecks=0
 DefaultRoute=$(route -n | awk '$4 == "UG" {print $2}')
 while [ -z "$DefaultRoute" ]; do
-    echo "Network interface not up, will try again in 1 second";
-    sleep 1;
+    echo "Network interface not up, will try again in 1 second"
+    sleep 1
     DefaultRoute=$(route -n | awk '$4 == "UG" {print $2}')
-    NetworkChecks=$((NetworkChecks+1))
+    NetworkChecks=$((NetworkChecks + 1))
     if [ $NetworkChecks -gt 20 ]; then
         echo "Waiting for network interface to come up timed out - starting server without network connection ..."
         break
@@ -49,8 +49,7 @@ else
     DownloadFile=$(echo "$DownloadURL" | sed 's#.*/##')
 
     # Download latest version of Minecraft Bedrock dedicated server if a new one is available
-    if [ -f "downloads/$DownloadFile" ]
-    then
+    if [ -f "downloads/$DownloadFile" ]; then
         echo "Minecraft Bedrock server is up to date..."
     else
         echo "New version $DownloadFile is available.  Updating Minecraft Bedrock server ..."
@@ -65,4 +64,5 @@ screen -dmS servername /bin/bash -c "LD_LIBRARY_PATH=dirname/minecraftbe/servern
 
 # Send message to discord that server is up
 sleep 10s
-python3 ~/status_bot.py &
+/home/cody/virtualenvironment/discord_scripts/bin/python3 /home/cody/status_bot.py &
+/home/cody/virtualenvironment/discord_scripts/bin/python3 /home/cody/server_on_msg.py &

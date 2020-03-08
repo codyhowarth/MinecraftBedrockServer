@@ -1,0 +1,14 @@
+[Unit]
+Description=Send discord message that server is down
+DefaultDependencies=no
+Before=shutdown.target reboot.target halt.target
+# This works because it is installed in the target and will be
+#   executed before the target state is entered
+# Also consider kexec.target
+
+[Service]
+Type=oneshot
+ExecStart=/home/cody/virtualenvironment/discord_scripts/bin/python3 /home/cody/server_off_msg.py
+
+[Install]
+WantedBy=halt.target reboot.target shutdown.target
