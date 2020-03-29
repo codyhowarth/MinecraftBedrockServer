@@ -9,9 +9,9 @@
 #
 # GitHub Repository: https://github.com/TheRemote/MinecraftBedrockServer
 
-echo "Minecraft Bedrock Server installation script by James Chambers - July 24th 2019"
-echo "Latest version always at https://github.com/TheRemote/MinecraftBedrockServer"
 echo "Don't forget to set up port forwarding on your router!  The default port is 19132"
+echo "!!! These scripts rely on the user being 'cody', and the home directory being set to 'cody' !!!"
+echo "Don't forget to add the cronjob as sudo (otherwise backups don't copy!)"
 
 # Function to read input from user with a prompt
 function read_with_prompt {
