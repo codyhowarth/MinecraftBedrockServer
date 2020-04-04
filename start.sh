@@ -64,5 +64,6 @@ screen -dmS servername /bin/bash -c "LD_LIBRARY_PATH=dirname/minecraftbe/servern
 
 # Send message to discord that server is up
 sleep 10s
-/home/cody/virtualenvironment/discord_scripts/bin/python3 /home/cody/status_bot.py &
+# Disable the bot for now
+#/home/cody/virtualenvironment/discord_scripts/bin/python3 /home/cody/status_bot.py &
 /home/cody/virtualenvironment/discord_scripts/bin/python3 /home/cody/server_on_msg.py &
