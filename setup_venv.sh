@@ -3,7 +3,7 @@
 sudo apt install python3-venv
 python3 -m venv /home/cody/virtualenvironment/discord_scripts
 source /home/cody/virtualenvironment/discord_scripts/bin/activate
-pip install -r requirements.txt
+pip install -r /home/cody/MinecraftBedrockServer/requirements.txt
 deactivate
 
 # copy over the scripts
