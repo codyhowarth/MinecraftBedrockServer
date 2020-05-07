@@ -30,6 +30,8 @@ sleep 1s
 screen -Rd servername -X stuff "say Closing server...$(printf '\r')"
 screen -Rd servername -X stuff "stop$(printf '\r')"
 
+/home/cody/virtualenvironment/discord_scripts/bin/python3 /home/cody/server_off_msg.py &
+
 echo "Closing server..."
 # Wait up to 30 seconds for server to close
 StopChecks=0
